@@ -2,12 +2,21 @@
 localStorage.i = 0;
 
 function addBank() {
+    isBeen = true;
     const bank = {};
     bank["name"] = addNameBank.value;
     bank["interestRate"] = Number(addInterestRate.value);
     bank["maxLoan"] = Number(addMaxLoan.value);
     bank["minDownPayment"] = Number(addMinDownPayment.value);
     bank["loanTerm"] = Number(addLoanTerm.value);
+
+    let keys = Object.keys(localStorage);
+    for(let key of keys) {
+        let obj = JSON.parse (localStorage.getItem (`${key}`))
+        if (obj.name == bank.name) {
+            localStorage.removeItem(`${key}`)
+        } 
+    }
     localStorage.setItem(`${(Number(localStorage.getItem('i')) + 1)}`,JSON.stringify(bank))
     localStorage.i++;
     showBanks()
