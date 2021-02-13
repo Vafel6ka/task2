@@ -133,9 +133,9 @@ html {
   }
 
   .tableRow {
-    width: 88%;
+    width: 90%;
     flex-wrap: wrap;
-
+    
   }
 
   .btnDel {
@@ -161,13 +161,6 @@ html {
     width: 100%;
     background-color: rgb(5, 55, 99);
     color: white;
-  }
-
-  #proba {
-    position: absolute;
-    top: 90%;
-    height: 50px;
-    width: 100%;
   }
 
   #calcText {

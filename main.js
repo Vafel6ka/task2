@@ -103,11 +103,9 @@ function getCalculate() {
             <p> You mounthly payment in ${obj.name} bank will be $${m}</p>
             `;
             calc.prepend(calcText);            
-        
-        
-        if (isName) alert (`Select the right bank's name!`)
-
     }
+    if (isName==true) {alert (`Select the right bank's name!`)
+        isName = false}
     }
 }
 
