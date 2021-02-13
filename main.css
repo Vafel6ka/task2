@@ -71,7 +71,6 @@ html {
   
   #addBankWrapper, #tableWrapper {
     width: 100%;
-    border-bottom: 3px solid rgb(5, 5, 5);
   }
   
   #addBankWrapper {
@@ -86,18 +85,18 @@ html {
   #tableWrapper {
     top: 15%;
     height: 70%;
-    overflow: auto
+    overflow: auto;
+
   }
 
   #table {
-      background: rgb(164, 193, 219);
       height: 80%;
-      border: 2px groove black;
-      color: black;
+      color: white;
       width: 100%;
       display: flex;
       justify-content: center; /* align horizontal */
-      
+      box-shadow: inset 0 0 6px black;
+      border: 1px solid black;
   }
   
   .titleText, .inpText {
@@ -115,36 +114,54 @@ html {
   
   #addNameBank, #addInterestRate, #addMaxLoan, #addMinDownPayment, #addLoanTerm {
     width: 100%;
+    box-shadow: inset 0 0 6px black;
+  }
+  
+  #nameBank, #downPayment, #initialLoan{
+  box-shadow: inset 0 0 6px black;
+  }
+
+  #getCalc {
+    box-shadow: 2px 2px black;
+    border: 1px solid black;
+    border-radius: 20%;
+    color: white;
+    background-color: rgb(5, 55, 99);
+    height: 25px;
   }
   
   #btnAddBank {
     margin-bottom: 1px;
-    border: 2px groove grey;
+    box-shadow: 2px 2px black;
+    border: 1px solid black;
     border-radius: 20%;
     width: 40px;
   }
 
   .tableColumn {
-    width: 16%;
+    width: 15%;
     height: 20px;
     margin-right: 26px;
     margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
   }
 
   .tableRow {
-    width: 90%;
+    width: 95%;
     flex-wrap: wrap;
     
   }
 
   .btnDel {
     width: 40px;
-    height: 20px;
-    border: 2px solid grey;
+    height: 23px;
+    box-shadow: 2px 2px black;
+    border: 1px solid black;
     margin-top: 10px;
     align-items: center; /* align vertical */
-    padding-right: 10px;
+    margin-left: 3%;
+    border-radius: 15%;
   }
 
   #calcDiv {

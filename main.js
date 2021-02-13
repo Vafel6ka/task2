@@ -89,7 +89,7 @@ function getCalculate() {
         }
         const obj = JSON.parse(localStorage.getItem(`${key}`))
             if (obj.name == info.bank) {
-                isName = false;
+                isName = true;
             if (obj.minDownPayment > info.downPayment) {
                 alert('change bank or up you downPayment')
                 return
@@ -102,10 +102,9 @@ function getCalculate() {
             calcText.innerHTML = `
             <p> You mounthly payment in ${obj.name} bank will be $${m}</p>
             `;
-            calc.prepend(calcText);            
-    }
-    if (isName==true) {alert (`Select the right bank's name!`)
-        isName = false}
+            calc.prepend(calcText);        
+    } 
+
     }
 }
 
