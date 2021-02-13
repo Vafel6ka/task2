@@ -1,191 +1,210 @@
 html {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
-    box-sizing: inherit;
-    }
-  
-  .row, .col, .tableRow, .tableColumn {
-    display: flex;
-  }
-  
-  .row, .tableRow {
-    flex-direction: row;
-  }
-  
-  .col, .tableColumn {
-    flex-direction: column;
-    align-content: center;
-  }
-    
-  #content, #header, #footer, #main {
-    position: absolute; 
-  }
-  
-  #content {
-    width: 1000px;
-    height: 800px;
-    font-family: 'Courier New', Courier, monospace;
-    font-style: oblique;
-    border: 3px solid black;
-  }
-  
-  #header, #footer {
-    width: 100%;
-    height: 20%;
-    background-color: aliceblue;
-  }
-  
-  #header {
-    top: 0;
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
-    font-size: 25px;
-  }
-  
-  #main {
-    top: 20%;
-    width: 100%;
-    height: 60%;
-    background-color: rgb(5, 55, 99);
-    color: white;
-  }
-  
-  #footer {
-    top: 80%;
-  }
-  
-  #mainWrapper, #addBankWrapper, #tableWrapper {
-    position: absolute;
-  }
-  
-  #mainWrapper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  #addBankWrapper, #tableWrapper {
-    width: 100%;
-  }
-  
-  #addBankWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 15%;
-    top: 0;
-    border-top: 3px solid rgb(5, 5, 5);
-  }
-  
-  #tableWrapper {
-    top: 15%;
-    height: 70%;
-    overflow: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
 
-  }
+.row,
+.col,
+.tableRow,
+.tableColumn {
+  display: flex;
+}
 
-  #table {
-      height: 80%;
-      color: white;
-      width: 100%;
-      display: flex;
-      justify-content: center; /* align horizontal */
-      box-shadow: inset 0 0 6px black;
-      border: 1px solid black;
-  }
-  
-  .titleText, .inpText {
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-  }
-  
-  .titleText {
-    height: 90%;
-    text-align: center;
-  }
-  
-  #addNameBank, #addInterestRate, #addMaxLoan, #addMinDownPayment, #addLoanTerm {
-    width: 100%;
-    box-shadow: inset 0 0 6px black;
-  }
-  
-  #nameBank, #downPayment, #initialLoan{
+.row,
+.tableRow {
+  flex-direction: row;
+}
+
+.col,
+.tableColumn {
+  flex-direction: column;
+  align-content: center;
+}
+
+#content,
+#header,
+#footer,
+#main {
+  position: absolute;
+}
+
+#content {
+  width: 1000px;
+  height: 800px;
+  font-family: "Courier New", Courier, monospace;
+  font-style: oblique;
+  border: 3px solid black;
+}
+
+#header,
+#footer {
+  width: 100%;
+  height: 20%;
+  background-color: aliceblue;
+}
+
+#header {
+  top: 0;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  font-size: 25px;
+}
+
+#main {
+  top: 20%;
+  width: 100%;
+  height: 60%;
+  background-color: rgb(5, 55, 99);
+  color: white;
+}
+
+#footer {
+  top: 80%;
+}
+
+#mainWrapper,
+#addBankWrapper,
+#tableWrapper {
+  position: absolute;
+}
+
+#mainWrapper {
+  width: 100%;
+  height: 100%;
+}
+
+#addBankWrapper,
+#tableWrapper {
+  width: 100%;
+}
+
+#addBankWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15%;
+  top: 0;
+  border-top: 3px solid rgb(5, 5, 5);
+}
+
+#tableWrapper {
+  top: 15%;
+  height: 70%;
+  overflow: auto;
+}
+
+#table {
+  height: 80%;
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* align horizontal */
   box-shadow: inset 0 0 6px black;
-  }
+  border: 1px solid black;
+}
 
-  #getCalc {
-    box-shadow: 2px 2px black;
-    border: 1px solid black;
-    border-radius: 20%;
-    color: white;
-    background-color: rgb(5, 55, 99);
-    height: 25px;
-  }
-  
-  #btnAddBank {
-    margin-bottom: 1px;
-    box-shadow: 2px 2px black;
-    border: 1px solid black;
-    border-radius: 20%;
-    width: 40px;
-  }
+.titleText,
+.inpText {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
 
-  .tableColumn {
-    width: 15%;
-    height: 20px;
-    margin-right: 26px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-  }
+.titleText {
+  height: 90%;
+  text-align: center;
+}
 
-  .tableRow {
-    width: 95%;
-    flex-wrap: wrap;
-    
-  }
+#addNameBank,
+#addInterestRate,
+#addMaxLoan,
+#addMinDownPayment,
+#addLoanTerm {
+  width: 100%;
+  box-shadow: inset 0 0 6px black;
+}
 
-  .btnDel {
-    width: 40px;
-    height: 23px;
-    box-shadow: 2px 2px black;
-    border: 1px solid black;
-    margin-top: 10px;
-    align-items: center; /* align vertical */
-    margin-left: 3%;
-    border-radius: 15%;
-  }
+#nameBank,
+#downPayment,
+#initialLoan {
+  box-shadow: inset 0 0 6px black;
+}
 
-  #calcDiv {
-    display: flex;
-    justify-content: space-around; /* align horizontal */
-    align-items: center;
-    width: 95%;
-    margin: 0 auto;
-  }
- 
-  #mainCalcBlock {
-    position: absolute;
-    bottom: 120%;
-    width: 100%;
-    background-color: rgb(5, 55, 99);
-    color: white;
-  }
+#getCalc {
+  box-shadow: 2px 2px black;
+  border: 1px solid black;
+  border-radius: 20%;
+  color: white;
+  background-color: rgb(5, 55, 99);
+  height: 25px;
+}
 
-  #calcText {
-    position: absolute;
-    top: 20%;
-  }
+#btnAddBank {
+  margin-bottom: 1px;
+  box-shadow: 2px 2px black;
+  border: 1px solid black;
+  border-radius: 20%;
+  width: 40px;
+}
 
-  #toCalcText {
-    height: 90%;
-    overflow: auto
-  }
+.tableColumn {
+  width: 15%;
+  height: 20px;
+  margin-right: 26px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.tableRow {
+  width: 95%;
+  flex-wrap: wrap;
+}
+
+.btnDel {
+  width: 40px;
+  height: 23px;
+  box-shadow: 2px 2px black;
+  border: 1px solid black;
+  margin-top: 10px;
+  align-items: center; /* align vertical */
+  margin-left: 3%;
+  border-radius: 15%;
+}
+
+#calcDiv {
+  display: flex;
+  justify-content: space-around; /* align horizontal */
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+}
+
+#mainCalcBlock {
+  position: absolute;
+  bottom: 120%;
+  width: 100%;
+  background-color: rgb(5, 55, 99);
+  color: white;
+}
+
+#calcText {
+  position: absolute;
+  top: 20%;
+}
+
+#toCalcText {
+  height: 90%;
+  overflow: auto;
+}
