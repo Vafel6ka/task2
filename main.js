@@ -22,6 +22,7 @@ function addBank() {
   );
   localStorage.i++;
   showBanks();
+  showListBanks();
 }
 
 function changeBtnColor() {
@@ -40,6 +41,7 @@ function changeDelBtnColor() {
       setTimeout(() => (btn.style.backgroundColor = ""), 1000);
       localStorage.removeItem(btn.getAttribute("id"));
       showBanks();
+      showListBanks();
     });
   });
 }
@@ -79,8 +81,8 @@ function getCalculate() {
   const calc = document.getElementById("toCalcText");
   info = {};
   info["bank"] = nameBank.value;
-  info["downPayment"] = downPayment.value;
-  info["initialLoan"] = initialLoan.value;
+  info["downPayment"] = Number(downPayment.value);
+  info["initialLoan"] = Number(initialLoan.value);
   let isName = true;
   console.log(info);
 
@@ -115,6 +117,21 @@ function getCalculate() {
   }
 }
 
+function showListBanks() {
+  delDivs();
+  const div = document.getElementById("banks");
+  for (let key in localStorage) {
+    if (!localStorage.hasOwnProperty(key) || key == `i`) {
+      continue;
+    }
+    const obj = JSON.parse(localStorage.getItem(`${key}`));
+    let option = document.createElement("option");
+    option.className = "banksOption";
+    option.value = obj.name;
+    div.append(option);
+  }
+}
+
 function isPush() {
   return new Promise((resolve) => {
     const addClick = document.getElementById("btnAddBank");
@@ -124,5 +141,33 @@ function isPush() {
   });
 }
 
+function isInputBanks() {
+  let click = false;
+  return new Promise((resolve) => {
+    const addClick = document.getElementById("banks");
+    addClick.addEventListener("focus", () => {
+      click = true;
+    });
+    if (click) {
+      resolve();
+    }
+  });
+}
+
+function delDivs() {
+  var blocks = document.querySelectorAll("#banks");
+
+  blocks.forEach(function (block) {
+    var children = Array.prototype.slice.call(block.children);
+
+    children.forEach(function (child) {
+      if (!child.classList.contains("visible")) {
+        block.removeChild(child);
+      }
+    });
+  });
+}
+
 changeBtnColor();
 isPush().then(showBanks());
+isInputBanks().then(showListBanks());
