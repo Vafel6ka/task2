@@ -97,13 +97,13 @@ function getCalculate() {
         alert("change bank or up you downPayment");
         return;
       }
-      const a = Math.pow(1 + obj.interestRate / 12, obj.loanTerm);
+      const a = Math.pow(1 + obj.interestRate / 1200, obj.loanTerm);
       const m =
         Math.round(
-          ((info.initialLoan - info.downPayment) *
-            (obj.interestRate / 12) *
+          (((info.initialLoan - info.downPayment) *
+            (obj.interestRate / 1200) *
             a) /
-            (a - 1) +
+            (a - 1)) *
             100
         ) / 100;
 
