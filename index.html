@@ -63,7 +63,7 @@
               <div class="row">
               <div class="col">
                 <div class="titleText">
-                  Loan term 
+                  Loan term, month
                 </div>
                 <div class="inpText">
                   <input type="text" id="addLoanTerm" value="" />
@@ -94,34 +94,38 @@
    
       <div id=footer>
         <div id="mainCalcBlock">
-             <div id="calcDiv" class="row">
+          <div id="calcDiv" class="row">
               
-              <div class="inpText">
-                Bank's name
+            <div class="inpText">
+                Bank's name              
+              <input list="banks" id="nameBank" value=""/>
+              <datalist id="banks">
+              </datalist>
+            </div>
               
-                <input list="banks" id="nameBank" value=""/>
-                  <datalist id="banks">
-                  </datalist>
-              </div>
-              
-              <div class="inpText">
+            <div class="inpText">
                 Down payment
-              </div>
-              <input type="text" id="downPayment" value="" />
-              
-              
-              <div class="inpText">
+            </div>
+            <input type="text" id="downPayment" value="" />
+
+            <div class="inpText">
                 Initial loan 
-              </div>
-                 <input type="text" id="initialLoan" value="" />
+            </div>
+            <input type="text" id="initialLoan" value="" />
                 
-              <input type="submit" id="getCalc" value="Calculate" onclick="getCalculate()"/>
+            <input type="submit" id="getCalc" value="Calculate" onclick="getCalculate()"/>
+          </div>
         </div>
-   </div>
-      <div id="toCalcText">
+
+        <div id="resultTableWrapper">
+          <div id="resultTable">
+          </div>
+        </div>
+
+        <div id="toCalcText">
         
+        </div>
       </div>
-  </div>
   <script src="main.js"></script>
 </body>
 

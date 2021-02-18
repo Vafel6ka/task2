@@ -79,7 +79,9 @@ function showBanks() {
 
 function getCalculate() {
   const calc = document.getElementById("toCalcText");
-  info = {};
+  let arrTable = [];
+  let info = {};
+
   info["bank"] = nameBank.value;
   info["downPayment"] = Number(downPayment.value);
   info["initialLoan"] = Number(initialLoan.value);
@@ -97,24 +99,72 @@ function getCalculate() {
         alert("change bank or up you downPayment");
         return;
       }
-      const a = Math.pow(1 + obj.interestRate / 1200, obj.loanTerm);
-      const m =
+      const a = Math.pow(1 + obj.interestRate / 100 / 12, obj.loanTerm);
+      const totalPayment =
         Math.round(
-          (((info.initialLoan - info.downPayment) *
-            (obj.interestRate / 1200) *
-            a) /
-            (a - 1)) *
+          (info.initialLoan - info.downPayment) *
+            (obj.interestRate / 100 / 12 +
+              obj.interestRate / 100 / 12 / (a - 1)) *
             100
         ) / 100;
 
-      let calcText = document.createElement("div");
-      calcText.className = "calcText";
-      calcText.innerHTML = `
-            <p> You mounthly payment in ${obj.name} bank will be $${m}</p>
-            `;
-      calc.prepend(calcText);
+      getCalcTable(
+        info.initialLoan - info.downPayment,
+        obj.loanTerm,
+        obj.interestRate,
+        totalPayment,
+        arrTable
+      );
+
+      console.log(arrTable);
+
+      //let calcText = document.createElement("div");
+      //calcText.className = "calcText";
+      //calcText.innerHTML = `
+      //       <p> You mounthly payment in ${obj.name} bank will be $${totalPayment}</p>
+      //      `;
+      // calc.prepend(calcText);
     }
   }
+
+  function creatColDiv(value, row) {
+    let tableResCol = document.createElement("div");
+    tableResCol.className = "tableResCol";
+    tableResCol.innerHTML = `
+                ${value}
+                `;
+    row.append(tableResCol);
+  }
+
+  function createRowDiv(col1, col2, col3, col4, div) {
+    let tableResRow = document.createElement("div");
+    tableResRow.className = "tableResRow";
+    creatColDiv(`${col1}`, tableResRow);
+    creatColDiv(`${col2}`, tableResRow);
+    creatColDiv(`${col3}`, tableResRow);
+    creatColDiv(`${col4}`, tableResRow);
+    div.append(tableResRow);
+  }
+
+  let calcTableText = document.getElementById("resultTable");
+  arrTable.forEach((arr, ind) => {
+    if (!ind) {
+      createRowDiv(
+        `month`,
+        `IntPayment`,
+        `TotalPayment`,
+        "LoanBalance",
+        calcTableText
+      );
+    }
+    createRowDiv(
+      arr.month,
+      arr.interestPayment,
+      arr.totalPayment,
+      arr.loanBalance,
+      calcTableText
+    );
+  });
 }
 
 function showListBanks() {
@@ -166,6 +216,21 @@ function delDivs() {
       }
     });
   });
+}
+
+function getCalcTable(loan, loanTerm, interestRate, m, arr) {
+  for (var i = 0; i < loanTerm; i++) {
+    let objTable = {};
+    objTable["month"] = i + 1;
+    objTable["totalPayment"] = m;
+    objTable["interestPayment"] =
+      Math.round(loan * (interestRate / 100 / 12) * 100) / 100;
+    loan = Math.round((loan - m + objTable.interestPayment) * 100) / 100;
+    objTable["loanBalance"] = loan;
+
+    arr.push(objTable);
+    //console.log(objTable);
+  }
 }
 
 changeBtnColor();
