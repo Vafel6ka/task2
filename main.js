@@ -78,6 +78,7 @@ function showBanks() {
 }
 
 function getCalculate() {
+  document.getElementById("resultTable").innerHTML = "";
   const calc = document.getElementById("toCalcText");
   let arrTable = [];
   let info = {};
