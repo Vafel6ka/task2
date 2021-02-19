@@ -56,6 +56,7 @@ html {
   justify-content: center; /* align horizontal */
   align-items: center; /* align vertical */
   font-size: 25px;
+  /* border-top: 3px solid black; */
 }
 
 #main {
@@ -93,7 +94,7 @@ html {
   justify-content: center;
   height: 15%;
   top: 0;
-  border-top: 3px solid rgb(5, 5, 5);
+  /* border-top: 3px solid rgb(5, 5, 5); */
 }
 
 #tableWrapper {
@@ -209,6 +210,8 @@ html {
   height: 90%;
   overflow: auto;
   background-color: aliceblue;
+  /* border-bottom: 3px solid black;
+  border-top: 3px solid black; */
 }
 
 #resultTableWrapper {
@@ -217,6 +220,8 @@ html {
   background-color: rgb(5, 55, 99);
   color: white;
   font-size: 14px;
+  display: none; /*                                         visib    !!!!!!!!!!!!!*/
+  margin-bottom: 3px;
 }
 
 #resultTable {
@@ -241,4 +246,24 @@ html {
   text-align: center;
   margin: 10px 0;
   border-bottom: 1px solid black;
+}
+
+/* #header,
+#main,
+#resultTableWrapper,
+#mainCalcBlock,
+#toCalcText {
+  border-left: 3px solid black;
+  border-right: 3px solid black;
+} */
+
+#btnToHide {
+  width: 60px;
+  height: 24px;
+  text-align: center;
+  box-shadow: 2px 2px black;
+  border: 1px solid black;
+  border-radius: 20%;
+  background-color: rgb(5, 55, 99);
+  margin-left: 91%;
 }

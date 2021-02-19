@@ -23,6 +23,13 @@ function addBank() {
   localStorage.i++;
   showBanks();
   showListBanks();
+  getClearValues(
+    addNameBank,
+    addInterestRate,
+    addMaxLoan,
+    addMinDownPayment,
+    addLoanTerm
+  );
 }
 
 function changeBtnColor() {
@@ -166,6 +173,9 @@ function getCalculate() {
       calcTableText
     );
   });
+
+  showTable();
+  getClearValues(nameBank, downPayment, initialLoan);
 }
 
 function showListBanks() {
@@ -195,7 +205,7 @@ function isPush() {
 function isInputBanks() {
   let click = false;
   return new Promise((resolve) => {
-    const addClick = document.getElementById("banks");
+    const addClick = document.getElementById(`banks`);
     addClick.addEventListener("focus", () => {
       click = true;
     });
@@ -219,6 +229,12 @@ function delDivs() {
   });
 }
 
+function getClearValues(...values) {
+  values.forEach((val) => {
+    val.value = "";
+  });
+}
+
 function getCalcTable(loan, loanTerm, interestRate, m, arr) {
   for (var i = 0; i < loanTerm; i++) {
     let objTable = {};
@@ -232,6 +248,16 @@ function getCalcTable(loan, loanTerm, interestRate, m, arr) {
     arr.push(objTable);
     //console.log(objTable);
   }
+}
+
+function showTable() {
+  const block = document.getElementById(`resultTableWrapper`);
+  block.style.display = `block`;
+}
+
+function hideTable() {
+  const block = document.getElementById(`resultTableWrapper`);
+  block.style.display = `none`;
 }
 
 changeBtnColor();
