@@ -86,6 +86,10 @@ function showBanks() {
 
 function getCalculate() {
   document.getElementById("resultTable").innerHTML = "";
+  if (nameBank.value == "") {
+    alert("Take the bank!!");
+    return;
+  }
   const calc = document.getElementById("toCalcText");
   let arrTable = [];
   let info = {};
@@ -104,9 +108,15 @@ function getCalculate() {
     if (obj.name == info.bank) {
       isName = true;
       if (obj.minDownPayment > info.downPayment) {
-        alert("change bank or up you downPayment");
+        alert("change bank or up you downPayment!");
         return;
       }
+
+      if (info.initialLoan > obj.maxLoan) {
+        alert("change bank or down you loan!");
+        return;
+      }
+
       const a = Math.pow(1 + obj.interestRate / 100 / 12, obj.loanTerm);
       const totalPayment =
         Math.round(
